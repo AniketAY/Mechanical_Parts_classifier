@@ -9,6 +9,7 @@ from keras.models import Sequential
 from keras.layers import Conv2D,Dense,MaxPooling2D,Flatten,BatchNormalization,AveragePooling2D
 from keras.applications.vgg16 import VGG16
 
+
 st.title('Mechanical parts detection')
 st.write("We will try to classify the mechanical parts with our Deep Learning model: ")
 
