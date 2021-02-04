@@ -20,7 +20,7 @@ model.add(Flatten())
 model.add(Dense(4,activation='softmax'))
 model.compile(loss='sparse_categorical_crossentropy', optimizer=keras.optimizers.Adam(lr=1e-3), metrics=['accuracy'])
 #Load the weights of the model trained on colab
-model.load_weights('model.h5')
+model.load_weights('model_weight.h5')
 
 # Defining a function that tests on a custom image using image
 # First we identify the actual class labels and what their corresponding index in the model
@@ -34,8 +34,8 @@ def mechanical_parts_predictor(image):
   test_image = np.array(list_of_test_images)
   prediction = model.predict_generator(test_image)
   st.write(prediction)
-  if (max(prediction[0])<0.9):
-    return "not of any known mechanical part"
+  # if (max(prediction[0])<0.9):
+    # return "not of any known mechanical part"
   predicted_class_index = np.argmax(prediction)
   return labels[predicted_class_index]
 
